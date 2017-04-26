@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=0,minimal-ui">
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+    <meta content="telephone=no" name="format-detection" />
+
+    <title>轮播DEMO | 科博网-钟科的个人博客</title>
+    <style>
+        *{ padding:0; margin:0; border:0; }
+        .wrap{ position: relative; height: 500px; width:360px; overflow:hidden; border:1px solid #ccc; margin:10px auto;  }
+        .wrap-list{ width:9999px; transform:translate3d(-360px,0,0); transition-delay: 2s; transition:ease; }
+        .wrap-list img{ float:left; width:360px; height: 500px; }
+        .btns{ text-align:center; }
+        .btns button{ width:100px; height: 30px; }
+    </style>
+</head>
+<body>
+<div class="wrap">
+    <div class="wrap-list">
+        <!--这里需要clone-->
+        <img src="http://img.mrco.cn/PKUgbaXooTzIz4TZQl7heAGF.jpg">
+
+        <img src="http://img.mrco.cn/VQeqlUbGMLcGqpy-QnDjzyZn.jpg">
+        <img src="http://img.mrco.cn/E32rcqdZn0uMt9JbXr0w0K95.jpg">
+        <img src="http://img.mrco.cn/uWHhrhupbMphjzsYtS7IRSD_.jpg">
+        <img src="http://img.mrco.cn/k2wZVNRo0YNU7i-wuC_-84Du.jpg">
+        <img src="http://img.mrco.cn/PKUgbaXooTzIz4TZQl7heAGF.jpg">
+
+        <!--这里需要clone-->
+        <img src="http://img.mrco.cn/VQeqlUbGMLcGqpy-QnDjzyZn.jpg">
+    </div>
+</div>
+
+<div class="btns">
+    <button id="btnLeft">左</button>
+    <button id="btnRight">右</button>
+</div>
+
+<script src="http://s.mrco.cn/scripts/libs/zepto/zepto.min.js?0.0.1"></script>
+<script src="http://s.mrco.cn/scripts/libs/zepto/selector.js?0.0.1"></script>
+<script src="http://s.mrco.cn/scripts//libs/zepto/touch.js?0.0.1"></script>
+
+</body>
+</html>
+<script type="text/javascript">
+$(function(){
+        var index = 1,
+            moveWidth = 360;    //每次需要移动的像素值
+
+        //左移动
+        $('#btnLeft').on('click',function(){
+            index++;
+            $('.wrap-list').css({ transform:'translate3d(-'+ (index * moveWidth) +'px,0,0);transition-duration: 2s;' });
+            if(index == $('.wrap-list img').size() - 1){
+                setTimeout(function () {
+                    //重置索引为1,相当于重头开始
+                    index = 1;
+                    $('.wrap-list').css({transform: 'translate3d(-' + (index * moveWidth) + 'px,0,0);transition-duration: 0s;'})
+                }, 0);
+            }
+        });
+
+        //右移动
+        $('#btnRight').on('click',function(){
+            //每次减一
+            index--;
+            //通过索引乘以移动像素值，那么就得到了移动的步位
+            $('.wrap-list').css({ transform:'translate3d(-'+ (index * moveWidth) +'px,0,0);transition-duration: 2s;' });
+            //这里的判断是衔接的关键所在,跟向右移是一个意思，等于0的时候就是到了clone的dom了，也就需要重新开始新的一轮了
+            if(index === 0) {
+                //css3的动画有一个300毫秒的执行时间,所以我们这里也需要等待300毫秒后再进行重置操作
+                setTimeout(function () {
+                    //这里就需要设置到除去两个clone的dom之外的最后一个dom索引来
+                    index = $('.wrap-list img').size() - 2;
+                    //重置wrap盒子为默认的其实位置开始，这里的css3的效果被去除了，所以看不出来有移动的效果，我们注意看transition-duration:0s;
+                    $('.wrap-list').css({transform: 'translate3d(-' + (index * moveWidth) + 'px,0,0);transition-duration: 0s;'})
+                }, 0);
+            }
+        });
+    });
+
+</script>

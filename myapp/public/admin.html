@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>
+        网易云后台登陆页面
+    </title>
+    <script src="./jQuery/jquery-3.1.1.min.js" charset="utf-8"></script>
+    <script src="./bootstrap/dist/js/bootstrap.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="./bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="./stylesheets/admin.css">
+    <meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" name="viewport" /></meta>
+    <script src="./javascripts/date.js" charset="utf-8"></script>
+    <script src="./js/data.js" charset="utf-8"></script>
+    <style media="screen">
+      .right{
+        overflow: auto;
+      }
+      .warp{
+        table-layout: fixed;
+      }
+      th{
+        width: 12.5%;
+      }
+      .td1 tr{
+        padding: 0;
+      }
+      tbody td{
+        word-wrap:break-word;word-break:break-all;
+        text-align: center;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        word-wrap: normal;
+      }
+
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid main">
+        <div class="row">
+            <div class="col-lg-12 bgc">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">网易云音乐发布器</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row leftlist">
+            <div class="col-sm-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">网易云音乐上架操作</h3>
+                    </div>
+                    <div class="panel-body">
+                        <form>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">音乐名称</label>
+                                <input type="text" class="form-control" id="exampleInputEmail1" placeholder="请输入音乐名称" value="">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">音乐作者</label>
+                                <textarea class="form-control" rows="1" id="exampleInputPassword1" value="" placeholder="请输入音乐作者"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">音乐地址</label>
+                                <input type="text" class="form-control" id="exampleInputEmail3" placeholder="请输入音乐地址" value="">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail2">音乐时长</label>
+                                <input type="text" class="form-control" id="exampleInputEmail2" placeholder="请输入音乐时长" value="">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail5">音乐所属专辑</label>
+                                <input type="text" class="form-control" id="exampleInputEmail5" placeholder="请输入专辑名称" value="">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail6">音乐封面</label>
+                                <input type="text" class="form-control" id="exampleInputEmail6" placeholder="请输入音乐封面" value="">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail7">音乐专辑封面</label>
+                                <input type="text" class="form-control" id="exampleInputEmail7" placeholder="请输入音乐专辑封面" value="">
+                            </div>
+                            <br/>
+                            <button type="submit" class="btn btn-primary btn-sm" id="btnt">提交</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-8">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">音乐列表</h3>
+                    </div>
+                    <div class="right">
+                        <table class="table table-hover table-responsive warp">
+                            <thead class="the">
+                                <tr>
+                                    <th>音乐编号</th>
+                                    <th>音乐名称</th>
+                                    <th>音乐作者</th>
+                                    <th>音乐地址</th>
+                                    <th>音乐时长</th>
+                                    <th>音乐所属专辑</th>
+                                    <th>音乐封面</th>
+                                    <th>音乐专辑封面</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tab1" class="td1">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

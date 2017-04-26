@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=0,minimal-ui">
+  <meta content="yes" name="apple-mobile-web-app-capable" />
+  <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+  <meta content="telephone=no" name="format-detection" />
+  <title>lunbo</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      border: 0;
+    }
+
+    .wrap {
+      position: relative;
+      height: 500px;
+      width: 360px;
+      overflow: hidden;
+      border: 1px solid #000;
+      margin: 20px auto;
+    }
+
+    .wraplist {
+      width: 999999px;
+      transform: translate3d(-360px, 0, 0);
+      transition-delay: 1s;
+      transition: ease;
+    }
+
+    .wraplist img {
+      float: left;
+      width: 360px;
+      height: 500px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap" id="wrap">
+    <div class="wraplist" id="wraplist">
+      <img src="http://img.mrco.cn/PKUgbaXooTzIz4TZQl7heAGF.jpg">
+
+      <img src="http://img.mrco.cn/VQeqlUbGMLcGqpy-QnDjzyZn.jpg" alt="">
+      <img src="http://img.mrco.cn/E32rcqdZn0uMt9JbXr0w0K95.jpg" alt="">
+      <img src="http://img.mrco.cn/uWHhrhupbMphjzsYtS7IRSD_.jpg" alt="">
+      <img src="http://img.mrco.cn/k2wZVNRo0YNU7i-wuC_-84Du.jpg" alt="">
+      <img src="http://img.mrco.cn/PKUgbaXooTzIz4TZQl7heAGF.jpg" alt="">
+
+      <img src="http://img.mrco.cn/VQeqlUbGMLcGqpy-QnDjzyZn.jpg">
+
+    </div>
+  </div>
+  <div>
+    <button type="button" class="btn btn-default" id="left">左</button>
+    <button type="button" class="btn btn-default" id="right">右</button>
+  </div>
+
+
+  <!-- <script src="http://s.mrco.cn/scripts/libs/zepto/zepto.min.js?0.0.1"></script>
+<script src="http://s.mrco.cn/scripts/libs/zepto/selector.js?0.0.1"></script>
+<script src="http://s.mrco.cn/scripts//libs/zepto/touch.js?0.0.1"></script> -->
+
+</body>
+
+</html>
+<script type="text/javascript">
+  var index = 1;
+  var moveWidth = 360;
+
+  document.getElementById('left').addEventListener('click', go);
+  document.getElementById('right').addEventListener('click', back)
+  var list = document.getElementById('wraplist');
+  var imgs = list.getElementsByTagName('img');
+
+
+
+  function go() {
+    index++;
+    list.style.transform = 'translate3d(-' + (index * moveWidth) + 'px,0,0)';
+    list.style.transition = "all 1s";
+    if (index == (imgs.length) - 1) {
+      setTimeout(function() {
+        index = 1;
+        list.style.transform = 'translate3d(-' + (index * moveWidth) + 'px,0,0)';
+        list.style.transition = "all 0s";
+      }, 1000);
+
+    }
+  }
+
+  function back() {
+    index--;
+    list.style.transform = 'translate3d(-'+(index * moveWidth) + 'px,0,0)';
+    list.style.transition = 'all 1s';
+    if (index == 0) {
+      setTimeout(function() {
+        index = imgs.length - 2;
+        list.style.transform = 'translate3d(-' + (index * moveWidth) + 'px,0,0)';
+        list.style.transition = "all 0s";
+      }, 1000);
+    }
+  }
+</script>

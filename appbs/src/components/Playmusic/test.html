@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title></title>
+  <link rel="stylesheet" href="css/reset.css">
+  <script src="js/vue.min.js" type="text/javascript"></script>
+</head>
+<body>
+<style>
+  input{ border: 1px solid #ddd;}
+  .vueList{
+    width: 400px;
+    margin: 20px 0;
+  }
+  .vueList li{
+    display: flex;
+  }
+  .vueList li span{
+    flex: 1;
+    display: block;
+  }
+</style>
+<div id="vueInstance">
+  <section v-if="loginStatus">
+    输入您的姓名：<input type="text" v-model="name"/>
+    <button v-on:click="say">欢迎点击</button>
+    <button @click="switchLoginStatus">退出登录</button>
+  </section>
+
+  <section v-if="!loginStatus">
+    您的姓名：<input type="text" v-model="name"/>
+    您的密码：<input type="password" v-model="pwd"/>
+    <button @click="switchLoginStatus">登录</button>
+  </section>
+</div>
+
+<script>
+var v = new Vue({
+  el : '#vueInstance',
+  data : {
+    name : 'bobobo',
+    loginStatus : false
+  },
+  methods : {
+    say : function(){
+      console.log("欢迎" + this.name)
+    },
+    switchLoginStatus : function(){
+      this.loginStatus = !this.loginStatus;
+    }
+  }
+});
+console.log(v.name)
+</script>
+
+<div class="vueList">
+    <ul>
+      <li>
+        <span>序号</span>
+        <span>价格</span>
+        <span>单位</span>
+        <span>总价：{{ sum }}</span>
+      </li>
+
+      <li v-for="(index,listCurrent) in list">
+        <span>{{ index + 1 }}</span>
+        <span>{{ listCurrent.price }}</span>
+        <span>{{ listCurrent.num }}</span>
+        <span>总价：{{ msg | discount listCurrent.price listCurrent.num }}</span>
+      </li>
+    </ul>
+  </div>
+<script>
+  var listCurrent = {
+    price:'', num:''
+  };
+  var list = [
+    { price:100, num:4 },
+    { price:110, num:14 },
+    { price:102, num:24 },
+    { price:140, num:34 },
+    { price:105, num:44 }
+  ];
+
+  var vm = new Vue({
+    el : '.vueList',
+    data : {
+      listCurrent : listCurrent,
+      list: list
+    },
+    computed : {
+      sum : function(){
+        var result = 0;
+        for (var i=0; i<list.length; i++){
+          result += Number(this.list[i].price) * Number(this.list[i].num);
+        }
+        return result;
+      }
+    },
+    filters: {
+      discount : function(discount,a,b){
+        return a * b;
+      }
+    }
+  });
+</script>
+</body>
+</html>
