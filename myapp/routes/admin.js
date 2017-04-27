@@ -7,7 +7,7 @@ var mysql = require('mysql');
 // ********************
 var connection = mysql.createConnection({
     host: 'localhost', //数据库地址
-    port: 3306, //端口  不要加引号
+    port: 8889, //端口  不要加引号
     user: 'root', //数据库用户名
     password: 'root', //数据库密码
     database: 'WYY' //数据库名
