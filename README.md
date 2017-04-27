@@ -40,6 +40,12 @@ PS:部分接口使用python爬的某度音乐😜所以部分童鞋可能请求�
 ## 4.27
 附带了一个自己写的初级vuex的md
 
+##展示图
+![Aaron Swartz](https://raw.githubusercontent.com/81777268/Using-the-vue-163music/master/jp/FireShot%20Capture%202%20-%20%E7%BD%91%E6%98%93%E4%BA%91%E9%9F%B3%E4%B9%90%20-%20http___localhost_8080_%23_.png)   
+![Aaron Swartz](https://raw.githubusercontent.com/81777268/Using-the-vue-163music/master/jp/FireShot%20Capture%203%20-%20%E7%BD%91%E6%98%93%E4%BA%91%E9%9F%B3%E4%B9%90%20-%20http___localhost_8080_%23_Navban.png)   
+![Aaron Swartz](https://github.com/81777268/Using-the-vue-163music/blob/master/jp/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202017-04-27%20%E4%B8%8A%E5%8D%8811.02.19.png)   
+![Aaron Swartz](https://raw.githubusercontent.com/81777268/Using-the-vue-163music/master/jp/FireShot%20Capture%204%20-%20%E7%BD%91%E6%98%93%E4%BA%91%E9%9F%B3%E4%B9%90%20-%20http___localhost_8080_%23_VipMusic.png)
+
 
 
 
